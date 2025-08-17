@@ -24,9 +24,9 @@ callstack
 
 Event loop
 asyncfun1() -> timeOut - excutive - resolve ()
-asyncfun2() -> timeOut - excutive - resolve ()
-asyncfun3() -> timeOut - excutive - resolve ()
-then().
+    asyncfun2() -> timeOut - excutive - resolve ()
+        asyncfun3() -> timeOut - excutive - resolve ()
+            then().
 
 output
 pre process
