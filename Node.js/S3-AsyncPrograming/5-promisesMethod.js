@@ -1,28 +1,8 @@
-// const asyncFun = (cb) => {
-//     setTimeout(() => {
-//         console.log('In between');
-//         for(let i=0;i<5;i++){
-//             cb();
-//         }
-//     }, 1000)
-// }
-
-// const main = () => {
-//     console.log('Start');
-//     asyncFun(() => {
-//         console.log('End');
-//     });
-// }
-// main();
-
-
-//promise 
-
 
 //change this callback into promise
 let start = Date.now();
 const asyncFun = () => {
-    return new Promise((resolve,reject) =>{
+    return new Promise((resolve, reject) => {
         setTimeout(() => {//T1
             console.log('In between 1', 'diff - ', Date.now() - start);
             resolve('1111');
@@ -71,7 +51,7 @@ const response = Promise.any([asyncFun(), asyncFun2(), asyncFun3()]);
 
 response.then((res) => {
     console.log(res);
-}).catch((e)=>{
+}).catch((e) => {
     console.log(e);
 })
 
