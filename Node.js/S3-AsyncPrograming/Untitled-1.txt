@@ -1,0 +1,37 @@
+/**1 CallBacks \***/
+50 ->
+--call stack
+
+--Event loop
+1 2 3
+asyncfun1 -> asyncfun2 -> asyncfun3
+
+--output
+pre process
+main complete
+In between 1
+4
+In betwwen 2
+5
+In between 3
+6
+All done
+
+/**2 promises \***/
+
+69->
+callstack
+
+Event loop
+asyncfun1() -> timeOut - excutive - resolve ()
+asyncfun2() -> timeOut - excutive - resolve ()
+asyncfun3() -> timeOut - excutive - resolve ()
+then().
+
+output
+pre process
+main complete
+In between 1
+In betwwen 2
+In between 3
+complete
