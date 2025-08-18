@@ -35,3 +35,25 @@ In between 1
 In betwwen 2
 In between 3
 complete
+
+
+/**3 Aysnc Await ***/
+
+
+
+Call Stack
+
+
+
+Event Loop:
+    T1 - wait for 10sec
+    T2 - wait for 5 sec
+    T3 - wait for 10 sec
+
+output:
+    start
+    promise started
+    11
+    0 1 2 3 4 5 6 7 8 9
+    Error sharifa
+    end
