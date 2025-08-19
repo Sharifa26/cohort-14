@@ -17,10 +17,9 @@ setTimeout(() => {//T1
 }, 100);
 
 Promise.resolve().then(() => {//P1
-    const f=(()=>{
+    Promise.resolve().then(() => {//P2
         console.log('Inner promise callback');
     });
-    f();
     process.nextTick(() => console.log('process.nextTick 1'));//NT2
     console.log('promise callback');
 });

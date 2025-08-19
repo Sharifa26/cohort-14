@@ -1,0 +1,45 @@
+┌─────────────┐
+│ Synchronous │
+└─────────────┘
+   ↓
+   "Main"
+   ↓
+   (schedule setTimeout → macrotask queue)
+   (schedule P1 → microtask queue)
+   (schedule NT1 → nextTick queue)
+
+---
+
+┌─────────────────────┐
+│ process.nextTick Q  │   (runs before Promises)
+└─────────────────────┘
+   ↓
+   "process.nextTick"
+
+---
+
+┌──────────────┐
+│ Microtasks   │   (Promise jobs)
+└──────────────┘
+   ↓
+   Run P1:
+      - schedules P2 (microtask)
+      - schedules NT2 (nextTick)
+      - log → "promise callback"
+
+   ↓
+   Run P2:
+      log → "Inner promise callback"
+
+   ↓
+   Run NT2:
+      log → "process.nextTick 1"
+
+---
+
+┌─────────────┐
+│ Macrotasks  │   (Timers, I/O, etc)
+└─────────────┘
+   ↓
+   setTimeout fires
+   "main timer"
