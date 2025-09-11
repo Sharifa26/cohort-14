@@ -1,9 +1,28 @@
-const courses = [
-    { id: 1, name: "JavaScript Fundamentals", duration: "4 weeks", level: "Beginner" },
-    { id: 2, name: "Python for Data Science", duration: "6 weeks", level: "Intermediate" },
-    { id: 3, name: "React.js Development", duration: "5 weeks", level: "Intermediate" },
-    { id: 4, name: "Machine Learning Basics", duration: "8 weeks", level: "Advanced" },
-    { id: 5, name: "UI/UX Design Principles", duration: "3 weeks", level: "Beginner" }
-];
+const mongoose = require("mongoose");
 
-module.exports = courses;
+// Step 1: Define the schema
+const courseSchema = new mongoose.Schema({
+    id: {
+        type: Number,
+        required: true,
+        unique: true
+    },
+    name: {
+        type: String,
+        required: true
+    },
+    duration: {
+        type: String,
+        required: true
+    },
+    level: {
+        type: String,
+        enum: ["Beginner", "Intermediate", "Advanced"], // optional constraint
+        required: true
+    }
+});
+
+// Step 2: Create the model
+const Course = mongoose.model("Course", courseSchema);
+
+module.exports = Course;

@@ -6,7 +6,7 @@ const router = express.Router();
 router.post('/register',async (req,res)=>{ 
     const user = req.body;
     const dbUser = await registerUser(user)
-    res.send(dbUser);
+    res.status(201).send(dbUser);
 });
 router.post('/login',async(req,res)=>{
     const { email ,password } = req.body;

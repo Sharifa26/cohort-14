@@ -1,24 +1,24 @@
-const courses = require('../models/courses.models');
+const coursesModel = require('../models/courses.models');
 
-const getAllCourses = async (req, res) => {
+const getAllCourses =  () => {
     try {
-        const courses = await coursesModel.find(); // use the model
+       return coursesModel.find(); // use the model
 
-        const { limit, offset } = req.query;
-        const limitNum = limit !== undefined ? parseInt(limit) : courses.length;
-        const offsetNum = offset !== undefined ? parseInt(offset) : 0;
+        // const { limit, offset } = req.query;
+        // const limitNum = limit !== undefined ? parseInt(limit) : courses.length;
+        // const offsetNum = offset !== undefined ? parseInt(offset) : 0;
 
-        const result = courses.slice(offsetNum, offsetNum + limitNum);
-        res.send(result);
+        // const result = courses.slice(offsetNum, offsetNum + limitNum);
+        // res.send(result);
+        
     } catch (err) {
-        res.status(500).send({ error: err.message });
+       // res.status(500).send({ error: err.message });
     }
 };
 
-const getById = (req, res) => {
-    const Id = req.params.id;
-    // console.log(req.params);
-    res.send(courses[Id]);
+const getById = (coursesId) => {
+    const courses = coursesModel.findById(parseInt(coursesId));
+    return courses;
 }
 
 const createCourses = (req, res) => {
