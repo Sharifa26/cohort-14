@@ -4,7 +4,7 @@ const readableStream = fs.createReadStream('../input/leviathan.txt', { encoding:
 // Handle data event
 
 readableStream.on('data', (chunk) => {
-    console.log('$$Received chunk$$:',chunk);
+    console.log('$$Received chunk$$:');
 });
 
 // Handle end event
