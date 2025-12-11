@@ -1,0 +1,5 @@
+load_dotenv
+google.generativeai
+chromadb
+os
+numpy
